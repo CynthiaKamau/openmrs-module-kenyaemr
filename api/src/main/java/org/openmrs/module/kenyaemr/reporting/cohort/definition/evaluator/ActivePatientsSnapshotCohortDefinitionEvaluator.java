@@ -35,18 +35,18 @@ import java.util.List;
 @Handler(supports = {ActivePatientsSnapshotCohortDefinition.class})
 public class ActivePatientsSnapshotCohortDefinitionEvaluator implements CohortDefinitionEvaluator {
 
-    private final Log log = LogFactory.getLog(this.getClass());
+	private final Log log = LogFactory.getLog(this.getClass());
 
 	@Autowired
 	EvaluationService evaluationService;
 
-    @Override
-    public EvaluatedCohort evaluate(CohortDefinition cohortDefinition, EvaluationContext context) throws EvaluationException {
+	@Override
+	public EvaluatedCohort evaluate(CohortDefinition cohortDefinition, EvaluationContext context) throws EvaluationException {
 
 		ActivePatientsSnapshotCohortDefinition definition = (ActivePatientsSnapshotCohortDefinition) cohortDefinition;
 
-        if (definition == null)
-            return null;
+		if (definition == null)
+			return null;
 
 		Cohort newCohort = new Cohort();
 
@@ -89,5 +89,5 @@ public class ActivePatientsSnapshotCohortDefinitionEvaluator implements CohortDe
 		List<Integer> ptIds = evaluationService.evaluateToList(builder, Integer.class, context);
 		newCohort.setMemberIds(new HashSet<Integer>(ptIds));
 		return new EvaluatedCohort(newCohort, definition, context);
-    }
+	}
 }

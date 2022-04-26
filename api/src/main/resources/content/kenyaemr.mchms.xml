@@ -50,6 +50,7 @@
 				<ref bean="kenyaemr.mchcs.report.maternityRegister" />
 				<ref bean="kenyaemr.mchms.report.pncRegister"/>
 				<ref bean="kenyaemr.mchms.report.currentlyEnrolledInMCH"/>
+				<ref bean="kenyaemr.mchms.report.patientsMissedAppointmentsMCH"/>
 			</set>
 		</property>
 		<property name="fragments">
@@ -268,6 +269,15 @@
 		<property name="targetUuid" value="a94d4b4d-57e1-4af8-8886-0fea927228df" />
 		<property name="name" value="Patients currently in MCH" />
 		<property name="description" value="Patients currently in MCH program" />
+		<property name="apps">
+			<set><ref bean="kenyaemr.app.reports" />
+			</set></property>
+	</bean>
+	<!-- MCH Missed Appointments -->
+	<bean id="kenyaemr.mchms.report.patientsMissedAppointmentsMCH" class="org.openmrs.module.kenyacore.report.HybridReportDescriptor">
+		<property name="targetUuid" value="dfc649c4-c46b-11ec-9d64-0242ac120002" />
+		<property name="name" value="Patients Missed Appointments on MCH" />
+		<property name="description" value="Patients Missed Appointments on MCH" />
 		<property name="apps">
 			<set><ref bean="kenyaemr.app.reports" />
 			</set></property>
